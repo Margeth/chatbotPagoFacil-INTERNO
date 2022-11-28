@@ -1,0 +1,58 @@
+
+25/11/2022, 0:16:52 Server: Servidor iniciado en el puerto: 3000
+25/11/2022, 0:16:52 Server: {"phone":"59173869821@s.whatsapp.net","message":"hola"}
+25/11/2022, 1:01:42 Server: Servidor iniciado en el puerto: 3000
+25/11/2022, 1:05:41 Server: Servidor iniciado en el puerto: 3000
+25/11/2022, 1:06:20 Server: Servidor iniciado en el puerto: 3000
+25/11/2022, 1:14:25 Server: Servidor iniciado en el puerto: 3000
+25/11/2022, 1:30:22 Server: Servidor iniciado en el puerto: 3000
+25/11/2022, 1:33:35 Server: Servidor iniciado en el puerto: 3000
+25/11/2022, 1:33:35 Server: {"API_KEY":"lfZaJtnhB8j5OEXXZIkcCOkXQXhnR0hqByBrN87rAj4=","phone":"59168643834","content":"Prueba Wabo Pago Facil"}
+25/11/2022, 1:33:35 Server: {"API_KEY":"lfZaJtnhB8j5OEXXZIkcCOkXQXhnR0hqByBrN87rAj4=","phone":"59168643834","content":"Prueba Wabo Pago Facil"}
+25/11/2022, 1:39:10 Server: Servidor iniciado en el puerto: 3000
+25/11/2022, 1:39:45 Server: Servidor iniciado en el puerto: 3000
+25/11/2022, 1:40:28 Server: Servidor iniciado en el puerto: 3000
+TypeError
+Cannot read properties of undefined (reading 'get')
+TypeError: Cannot read properties of undefined (reading 'get')
+    at ServerResponse.json (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\response.js:268:20)
+    at listCategory (I:\PAGO FACIL\whatsappchatapiv\services\chatBotService\menu.js:43:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async I:\PAGO FACIL\whatsappchatapiv\routes\chatbotroutes.js:23:5
+25/11/2022, 1:41:58 Server: Servidor iniciado en el puerto: 3000
+ReferenceError
+messageService is not defined
+ReferenceError: messageService is not defined
+    at listCategory (I:\PAGO FACIL\whatsappchatapiv\services\chatBotService\menu.js:16:28)
+    at I:\PAGO FACIL\whatsappchatapiv\routes\chatbotroutes.js:23:11
+    at Layer.handle [as handle_request] (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\layer.js:95:5)
+    at next (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\layer.js:95:5)
+    at I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:346:12)
+    at next (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:175:3)
+    at router (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:328:13)
+    at I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:346:12)
+    at next (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (I:\PAGO FACIL\whatsappchatapiv\node_modules\body-parser\lib\types\urlencoded.js:82:7)
+    at Layer.handle [as handle_request] (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:328:13)
+    at I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:346:12)
+    at next (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\router\index.js:280:10)
+25/11/2022, 1:43:31 Server: Servidor iniciado en el puerto: 3000
+TypeError
+Cannot read properties of undefined (reading 'get')
+TypeError: Cannot read properties of undefined (reading 'get')
+    at ServerResponse.json (I:\PAGO FACIL\whatsappchatapiv\node_modules\express\lib\response.js:268:20)
+    at listCategory (I:\PAGO FACIL\whatsappchatapiv\services\chatBotService\menu.js:43:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async I:\PAGO FACIL\whatsappchatapiv\routes\chatbotroutes.js:23:5
+25/11/2022, 14:54:16 Server: Servidor iniciado en el puerto: 3000
+28/11/2022, 9:59:13 Server: Servidor iniciado en el puerto: 3000
+28/11/2022, 10:00:20 Server: Servidor iniciado en el puerto: 3000

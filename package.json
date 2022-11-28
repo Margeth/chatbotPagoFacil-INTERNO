@@ -1,0 +1,30 @@
+{
+  "name": "whatsapp-bot",
+  "version": "1.0.0",
+  "description": "Simple bot for chat-api.com",
+  "main": "indexx.js",
+  "scripts": {
+    "start": "node indexx.js"
+  },
+  "author": "A.K.",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "btoa": "^1.2.1",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "node-api-doc-generator": "^1.1.1",
+    "node-fetch": "^2.6.6",
+    "pad": "^3.2.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "uuid": "^8.3.2",
+    "websocket": "^1.0.34",
+    "websockets": "^0.2.0",
+    "ws": "^8.11.0"
+  }
+}
