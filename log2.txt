@@ -56,3 +56,4 @@ TypeError: Cannot read properties of undefined (reading 'get')
 25/11/2022, 14:54:16 Server: Servidor iniciado en el puerto: 3000
 28/11/2022, 9:59:13 Server: Servidor iniciado en el puerto: 3000
 28/11/2022, 10:00:20 Server: Servidor iniciado en el puerto: 3000
+28/11/2022, 16:24:36 Server: Servidor iniciado en el puerto: 3000

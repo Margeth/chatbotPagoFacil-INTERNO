@@ -19,7 +19,7 @@ let greeting =[`¡Hola! Encantado de conocerte. Soy el chatbot de Pago Fácil. S
 async function getGreeting(lcphone) {
     let loResponse=null;
     try {
-        if( isNewUser()){
+       // if( isNewUser()){
             loResponse = await messageService.apiChatApinv(
                 {
                     "API_KEY": API_KEY_WABO,
@@ -27,7 +27,7 @@ async function getGreeting(lcphone) {
                     "content": greeting[0],//.replace(/\0.*$/g, '')
                 }
             );
-        }else{
+      /*  }else{
             loResponse = await messageService.apiChatApinv(
                 {
                     "API_KEY": API_KEY_WABO,
@@ -35,7 +35,7 @@ async function getGreeting(lcphone) {
                     "content": greeting[1],//.replace(/\0.*$/g, '')
                 }
             );
-        }
+        }*/
         if (loResponse.status) {
             res.json( getResultJsonMessage(0, 1, "El mensaje fue enviado con exito.", 1, "",  loResponse));
         } else {

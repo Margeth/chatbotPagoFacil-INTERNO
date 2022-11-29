@@ -27,16 +27,16 @@ const chatBotRouter = require('./routes/chatbotroutes');
 //const apiWhatsappRouter = require('./routes/apiWhatsapp');
 const path = require("path");
 const cors = require('cors');
-const {getGreeting} = require("./services/chatBotService/greeting");
-const {listMenu, categories, chooseMenu} = require("./services/chatBotService/menu");
-
+const {listCategory} = require("./services/chatBotService/menu");
 const server = require('http').Server(app);
 const WebSocketServer = require("websocket").server;
 const fs = require('fs');
-const {listCities, cities, chooseCity} = require("./services/chatBotService/cities");
-const {chooseCategory} = require("./services/chatBotService/categories");
-const {chooseService} = require("./services/chatBotService/services");
+const {getGreeting} = require("./services/chatBotService/greeting");
 
+
+if (typeof(PhusionPassenger) !== 'undefined') {
+    PhusionPassenger.configure({ autoInstall: false });
+}
 const port = process.env.PORT || 5002;
 var d = new Date();
 app.use(bodyParser.json({ limit: '100mb' }));
@@ -57,6 +57,7 @@ app.use('/chatbot',chatBotRouter.router);
 //app.use('/bussiness',empresaRouter.router);
 //________________________________
 
+app.listen('passenger');
 
 app.listen(port,function () {
     console.log('Listening on port',port);
@@ -72,7 +73,7 @@ app.post('/', async function (req, res) {
     console.log(req.body);
     await messageService.verifyUser(req, res);
     await messageService.verifyChatGeneral(req, res);
-    await messageService.registerReceivedMessageGeneral(req, res);    
+    await messageService.registerReceivedMessageGeneral(req, res);
 });
 
 app.get('/linkprueba', async function(request,res){
@@ -89,11 +90,11 @@ app.get('/linkprueba', async function(request,res){
 })
 
 app.post('/jwtexample', async function(req,res){
-    const text = await goSecurityService.encrypt3DES(req.body.text, goKey.getKey());    
-    /*const message = await goSecurityService.encrypt3DES(req.body.message, goKey.getKey()); 
+    const text = await goSecurityService.encrypt3DES(req.body.text, goKey.getKey());
+    /*const message = await goSecurityService.encrypt3DES(req.body.message, goKey.getKey());
     const chatId = await goSecurityService.encrypt3DES(req.body.ChatId, goKey.getKey());
     const user = await goSecurityService.encrypt3DES(req.body.usuario, goKey.getKey());
-    const empresa = await goSecurityService.encrypt3DES(req.body.empresa, goKey.getKey());          
+    const empresa = await goSecurityService.encrypt3DES(req.body.empresa, goKey.getKey());
     */
     res.json(
         {
@@ -103,6 +104,7 @@ app.post('/jwtexample', async function(req,res){
 });
 
 /********************* SOCKET *************/
+
 
 var logger = fs.createWriteStream('log2.txt', {
     flags: 'a' // 'a' means appending (old data will be preserved)
@@ -120,14 +122,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "./public")));
 
+
 /************************************************************
  * Description: server websocket: verifies that a server customer to be same.
  * Return: boolean
  * Parameters: chart: origen localhost direction
  ************************************************************/
-function originIsAllowed(origin) {
-    return origin === "http://localhost:3000";
-} // Once the server has been validated, the message is sent.
+
+// Once the server has been validated, the message is sent.
 wsServer.on("request", (request) =>{
     const connection = request.accept(null, request.origin);
 
@@ -135,23 +137,29 @@ wsServer.on("request", (request) =>{
         var datetime = d.toLocaleString();console.log(datetime);
         writeLine(datetime + " Server: " + message.utf8Data);
         var lcPhone=JSON.parse(message.utf8Data).phone.substring(0,11);
-        getGreeting(lcPhone);
-       // chooseMenu(JSON.parse(message.utf8Data).message, lcPhone);
-       // //lista Menu
-     /* chooseMenu(JSON.parse(message.utf8Data).message, lcPhone);
-        chooseCategory(JSON.parse(message.utf8Data).message,lcPhone);
-        chooseCity(JSON.parse(message.utf8Data).message,lcPhone);
-        chooseService(JSON.parse(message.utf8Data).message,lcPhone);*/
+        try {
+            getGreeting(lcPhone);
+        }
+        catch (err){
+            writeLine(err.name);
+            writeLine(err.message);
+            writeLine(err.stack);
+        }
+        //chooseMenu(JSON.parse(message.utf8Data).message, lcPhone);
+        // //lista Menu
+        /* chooseMenu(JSON.parse(message.utf8Data).message, lcPhone);
+           chooseCategory(JSON.parse(message.utf8Data).message,lcPhone);
+           chooseCity(JSON.parse(message.utf8Data).message,lcPhone);
+           chooseService(JSON.parse(message.utf8Data).message,lcPhone);*/
         //return to customer
         connection.sendUTF("Recibido: " + message.utf8Data);
     });
-    connection.on("message", (message) => {
-        var lcPhone=JSON.parse(message.utf8Data).phone.substring(0,11);
-        listMenu(lcPhone);
-        chooseMenu(JSON.parse(message.utf8Data).message, lcPhone);
-        connection.sendUTF("Recibido: " + message.utf8Data);
-    });
-
+    /* connection.on("message", (message) => {
+         var lcPhone=JSON.parse(message.utf8Data).phone.substring(0,11);
+         listMenu(lcPhone);
+         chooseMenu(JSON.parse(message.utf8Data).message, lcPhone);
+         connection.sendUTF("Recibido: " + message.utf8Data);
+     });*/
     connection.on("close", (reasonCode, description) => {
         console.log("El cliente se desconecto");
     });
@@ -170,8 +178,5 @@ catch (err){
     writeLine(err.message);
     writeLine(err.stack);
 }
-
-
-
 
 
